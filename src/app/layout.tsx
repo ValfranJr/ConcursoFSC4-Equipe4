@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Anton } from "next/font/google";
+
+const logo = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-logo",
+});
 
 export const metadata: Metadata = {
   title: "Quizz - App",

@@ -1,10 +1,9 @@
-import Image from "next/image";
+import IntroPage from "./components/IntroPage";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
-      <p>Este é um projeto de um quizz para o concurso FSC - Equipe 4</p>
+      <IntroPage />
     </div>
   );
 }
