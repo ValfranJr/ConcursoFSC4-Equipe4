@@ -67,7 +67,7 @@ export const LeaderboardTopPlayers = ({
           <div
             className={`mt-4 relative rounded-full overflow-hidden border-4 ${
               player.rank === 1
-                ? "border-yellow-400 w-24 h-24 md:w-32 md:h-32"
+                ? "border-yellow-400 w-24 h-24 md:w-32 md:h-32 "
                 : "border-white/20 w-16 h-16 md:w-20 md:h-20"
             }`}
           >
@@ -77,6 +77,7 @@ export const LeaderboardTopPlayers = ({
               style={{ objectFit: "cover" }}
               sizes="96px"
               fill
+              className="rounded-full"
             />
           </div>
 

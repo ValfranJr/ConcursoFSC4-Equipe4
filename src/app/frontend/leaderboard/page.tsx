@@ -129,12 +129,10 @@ export default function LeaderboardPage() {
     <div className="flex flex-col min-h-screen items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white">
       {/* Cabeçalho */}
       <div className="flex items-center justify-between w-full max-w-2xl px-2 py-4">
-        <Link href="/home" passHref>
-          <button className="text-white hover:text-gray-300 transition-colors">
-            <ChevronLeft size={36} />
-          </button>
+        <Link href="/home" className="text-white hover:text-gray-300 transition-colors" passHref >
+            <ChevronLeft size={36} className="cursor-pointer"/>
         </Link>
-        <h1 className="text-4xl font-bold flex-grow text-center -ml-8">
+        <h1 className="text-4xl font-bold flex-grow text-center ml-8">
           Leaderboard
         </h1>
         <UserPointsCard
