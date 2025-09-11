@@ -79,6 +79,24 @@ const mockRankingData = [
     score: 600,
     avatarUrl: "https://i.pravatar.cc/150?img=10",
   },
+  { id: 11,
+    name: "Mallory",
+    username: "Mallory",
+    score: 500,
+    avatarUrl: "https://i.pravatar.cc/150?img=11",
+  },
+  { id: 12,
+    name: "Niaj",
+    username: "Niaj", 
+    score: 400,
+    avatarUrl: "https://i.pravatar.cc/150?img=12",
+  },
+  { id: 13,
+    name: "Olivia", 
+    username: "Olivia",
+    score: 300,
+    avatarUrl: "https://i.pravatar.cc/150?img=13",
+  },
 ];
 
 /***
@@ -108,28 +126,26 @@ export default function LeaderboardPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen items-center p-4 bg-gradientt-to-br from-[#6a0dad] to-[#4b0082]">
-      {/* Container Pincipal com efeito blur */}
-      <div className="w-full max-w-2xl bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl border-white/20">
-        {/* Cabeçalho com botão de voltar e o titulo*/}
-        <div className="flex items-center justify-between mb-8">
-          <Link href="/home" passHref>
-            <button className="text-white hover:text-gray-300 transition-colors">
-              <ChevronLeft size={36} />
-            </button>
-          </Link>
-          <h1 className="text-4xl font-bold text-center flex-grow">
-            Leaderboard
-          </h1>
-          <UserPointsCard
-            points={currentUser.score}
-            badgeUrl={currentUser.avatarUrl}
-          />
-          {/* Espaço vazio para balancear o layout */}
-        </div>
+    <div className="flex flex-col min-h-screen items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white">
+      {/* Cabeçalho */}
+      <div className="flex items-center justify-between w-full max-w-2xl px-2 py-4">
+        <Link href="/home" passHref>
+          <button className="text-white hover:text-gray-300 transition-colors">
+            <ChevronLeft size={36} />
+          </button>
+        </Link>
+        <h1 className="text-4xl font-bold flex-grow text-center -ml-8">
+          Leaderboard
+        </h1>
+        <UserPointsCard
+          points={currentUser.score}
+          badgeUrl={currentUser.avatarUrl}
+        />
+      </div>
 
-        {/* Top 3 Jogadores*/}
-
+      {/* Conteúdo principal - Container com efeito de blur */}
+      <div className="w-full max-w-2xl rounded-2xl p-6 mb-8 mt-4">
+        {/* Top 3 Jogadores */}
         <LeaderboardTopPlayers
           first={topPlayers[0]}
           second={topPlayers[1]}
@@ -137,22 +153,21 @@ export default function LeaderboardPage() {
         />
 
         {/* Lista dos demais jogadores no ranking */}
-        <ul className="space-y-4 mt-8">
-          {otherPlayers.map((player) => (
-            <LeaderboardListItem
-              key={player.id}
-              rank={mockRankingData.indexOf(player) + 1}
-              name={player.name}
-              score={player.score}
-              avatarUrl={player.avatarUrl}
-              isCurrentUser={player.id === currentUser.id}
-            />
-          ))}
-        </ul>
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 shadow-2xl border-white/20">
+          <ul className="space-y-4">
+            {otherPlayers.map((player) => (
+              <LeaderboardListItem
+                key={player.id}
+                rank={mockRankingData.indexOf(player) + 1}
+                name={player.name}
+                score={player.score}
+                avatarUrl={player.avatarUrl}
+                isCurrentUser={player.id === currentUser.id}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-
-      {/* Navegação inferior fixa - CASO SEJA NECESSÁRIO */}
-      {/* Botão de navegação */}
       <BottomNavigationBar />
     </div>
   );
