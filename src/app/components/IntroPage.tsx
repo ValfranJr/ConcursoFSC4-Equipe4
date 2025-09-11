@@ -13,7 +13,7 @@ export default function IntroPage() {
           <Image src="/avatar-quizz.png" alt="logo" width={200} height={200} />
         </div>
         <div className="flex justify-center mt-20">
-          <Link href="/login">
+          <Link href="/frontend/login">
             <button className=" w-[300px] bg-primary hover:bg-secondary-foreground hover:text-primary text-primary-foreground font-medium py-3 rounded-2xl">
               Start
             </button>
