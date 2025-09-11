@@ -79,20 +79,23 @@ const mockRankingData = [
     score: 600,
     avatarUrl: "https://i.pravatar.cc/150?img=10",
   },
-  { id: 11,
+  {
+    id: 11,
     name: "Mallory",
     username: "Mallory",
     score: 500,
     avatarUrl: "https://i.pravatar.cc/150?img=11",
   },
-  { id: 12,
+  {
+    id: 12,
     name: "Niaj",
-    username: "Niaj", 
+    username: "Niaj",
     score: 400,
     avatarUrl: "https://i.pravatar.cc/150?img=12",
   },
-  { id: 13,
-    name: "Olivia", 
+  {
+    id: 13,
+    name: "Olivia",
     username: "Olivia",
     score: 300,
     avatarUrl: "https://i.pravatar.cc/150?img=13",
@@ -129,8 +132,12 @@ export default function LeaderboardPage() {
     <div className="flex flex-col min-h-screen items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white">
       {/* Cabeçalho */}
       <div className="flex items-center justify-between w-full max-w-2xl px-2 py-4">
-        <Link href="/home" className="text-white hover:text-gray-300 transition-colors" passHref >
-            <ChevronLeft size={36} className="cursor-pointer"/>
+        <Link
+          href="/frontend/home"
+          className="text-white hover:text-gray-300 transition-colors"
+          passHref
+        >
+          <ChevronLeft size={36} className="cursor-pointer" />
         </Link>
         <h1 className="text-4xl font-bold flex-grow text-center ml-8">
           Leaderboard
