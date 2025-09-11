@@ -1,10 +1,7 @@
-'use client';
+"use client";
 
-import { BottomNavigationBar } from '@/app/components/BottomNavigationBar';
-import Link from 'next/link';
-
-
-
+import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -23,7 +20,7 @@ export default function HomePage() {
             Modo Multiplayer
           </button>
         </Link>
-        <Link href="/leaderboard" passHref>
+        <Link href="/frontend/leaderboard" passHref>
           <button className="w-full py-4 text-2xl font-bold text-primary-foreground bg-primary rounded-lg shadow-lg hover:opacity-80 transition-opacity duration-300">
             Ranking
           </button>
