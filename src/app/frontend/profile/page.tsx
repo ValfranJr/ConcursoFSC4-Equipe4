@@ -9,6 +9,7 @@ import Image from "next/image";
 import { UserPointsCard } from "@/app/components/UserPointsCard";
 import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
 import { ProfileStatsCard } from "@/app/components/profile/ProfileStatsCard";
+import { AchievementCard } from "@/app/components/profile/AchievementCard";
 
 // Componentes do perfil
 //import { ProfileStatsCard } from "./components/ProfileStatsCard";
@@ -94,7 +95,14 @@ export default function ProfilePage() {
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
                     <h3 className="text-2xl font-bold text-white mb-4">Conquistas</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        Conquistas (em construção)                    
+                        {mockUser.achievements.map((ach) => (
+                            <AchievementCard
+                                key={ach.id}
+                                iconUrl={ach.icon}
+                                value={ach.title}
+                                label={ach.description}
+                            />
+                        ))}               
                     </div>
                 </div>
             </section>
