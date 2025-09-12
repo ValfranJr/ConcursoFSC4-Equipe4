@@ -16,7 +16,7 @@ export function AchievementCard({
   return (
     <div className="flex flex-col p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-md text-white">
       <div className="relative w-12 h-12 mb-2">
-        <span className="w-28 h-28 ">{iconUrl}</span>
+        <span className="text-4xl">{iconUrl}</span>
         
       </div>
       <span className="text-xl font-bold">{value}</span>
