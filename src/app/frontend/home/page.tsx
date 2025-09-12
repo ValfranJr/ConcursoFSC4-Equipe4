@@ -25,7 +25,7 @@ export default function HomePage() {
             Ranking
           </button>
         </Link>
-        <Link href="/profile" passHref>
+        <Link href="/frontend/profile" passHref>
           <button className="w-full py-4 text-2xl font-bold text-primary-foreground bg-primary rounded-lg shadow-lg hover:opacity-80 transition-opacity duration-300">
             Meu Perfil
           </button>

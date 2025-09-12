@@ -8,6 +8,7 @@ import Image from "next/image";
 
 import { UserPointsCard } from "@/app/components/UserPointsCard";
 import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
+import { ProfileStatsCard } from "@/app/components/profile/ProfileStatsCard";
 
 // Componentes do perfil
 //import { ProfileStatsCard } from "./components/ProfileStatsCard";
@@ -72,9 +73,9 @@ export default function ProfilePage() {
             {/* Estatísticas do usuário */}
             <section className="flex justify-around w-full max-w-2xl mb-8">
                 {/* Será o componente ProfileStatsCard */}
-                {/* <ProfileStatsCard label="Quizzie" value={mockUser.quizzies.toString()} /> */}
-                {/* <ProfileStatsCard label="Plays" value={mockUser.plays} /> */}
-                {/* <ProfileStatsCard label="Rank" value={mockUser.rank} /> */}
+                 <ProfileStatsCard label="Quizzie" value={mockUser.quizzies.toString()} /> 
+                 <ProfileStatsCard label="Plays" value={mockUser.plays.toString()} /> 
+                 <ProfileStatsCard label="Rank" value={mockUser.rank.toString()} /> 
             </section>
 
             {/* Grafico de estatisticas */}
