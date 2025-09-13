@@ -1,11 +1,10 @@
 "use client";
 
-import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center py-2">
       <h1 className="text-6xl font-bold mb-10 text-primary-foreground">
         Quizz Game
       </h1>
@@ -31,8 +30,6 @@ export default function HomePage() {
           </button>
         </Link>
       </div>
-
-      <BottomNavigationBar />
     </div>
   );
 }

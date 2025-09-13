@@ -1,12 +1,10 @@
 "use client";
 
-import { ChevronLeft, Edit2 } from "lucide-react";
-import Link from "next/link";
+import { Edit2 } from "lucide-react";
 import Image from "next/image";
 
 // Components reutilizáveis
 import { UserPointsCard } from "@/app/components/UserPointsCard";
-import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
 import { ProfileStatsCard } from "@/app/components/profile/ProfileStatsCard";
 import { AchievementCard } from "@/app/components/profile/AchievementCard";
 import { ProfileChart } from "@/app/components/profile/ProfileChart";
@@ -53,16 +51,9 @@ const mockUser = {
 
 export default function ProfilePage() {
   return (
-    <div className="flex flex-col min-h-screen items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white4">
+    <div className="flex flex-col items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white4">
       {/* Container principal para conteúdo*/}
       <header className="flex items-center justify-between w-full max-w-2xl px-2 py-4 relative">
-        <Link
-          href="/frontend/home"
-          className="text-white hover:text-gray-300 transition-colors"
-          passHref
-        >
-          <ChevronLeft size={36} className="cursor-pointer" />
-        </Link>
         <h1 className="text-4xl font-bold text-white flex-grow text-center">
           Perfil
         </h1>
@@ -112,6 +103,7 @@ export default function ProfilePage() {
             </div>
           </section>
 
+
           {/* Grafico de estatisticas */}
           <section className="w-full max-w-lg mb-8">
               {/* Componente de gráfico - pode usar Chart.js ou Recharts */}
@@ -138,8 +130,6 @@ export default function ProfilePage() {
           </section>
         </main>
       </div>
-
-      <BottomNavigationBar />
     </div>
   );
 }
