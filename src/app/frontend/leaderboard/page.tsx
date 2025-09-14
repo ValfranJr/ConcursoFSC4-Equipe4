@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Bot, ChevronLeft } from "lucide-react";
 import { LeaderboardTopPlayers } from "@/app/components/leaderboard/LeaderboardTopPlayers";
 import { LeaderboardListItem } from "@/app/components/leaderboard/LeaderboardListItem";
-import { BottomNavigationBar } from "@/app/components/BottomNavigationBar";
 import { UserPointsCard } from "@/app/components/UserPointsCard";
 
 // Dados de exemplo para o ranking. Aqui é adicionado o backend futuramente.
@@ -121,59 +119,46 @@ export default function LeaderboardPage() {
   const topPlayers = mockRankingData.slice(0, 3);
   const otherPlayers = mockRankingData.slice(3);
 
-  // URL de imagens de medalhas
-  const medalUrls = [
-    "https://cdn-icons-png.flaticon.com/512/2583/2583344.png", // Ouro
-    "https://cdn-icons-png.flaticon.com/512/2583/2583345.png", // Prata
-    "https://cdn-icons-png.flaticon.com/512/2583/2583346.png", // Bronze
-  ];
-
   return (
-    <div className="flex flex-col min-h-screen items-center p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white">
-      {/* Cabeçalho */}
-      <div className="flex items-center justify-between w-full max-w-2xl px-2 py-4">
-        <Link
-          href="/frontend/home"
-          className="text-white hover:text-gray-300 transition-colors"
-          passHref
-        >
-          <ChevronLeft size={36} className="cursor-pointer" />
-        </Link>
-        <h1 className="text-4xl font-bold flex-grow text-center ml-8">
-          Leaderboard
-        </h1>
-        <UserPointsCard
-          points={currentUser.score}
-          badgeUrl={currentUser.avatarUrl}
-        />
-      </div>
+    <div className="flex flex-col min-h-screen p-4 bg-gradient-to-br from-[#6a0dad] to-[#4b0082] text-white">
+      <div className="w-full max-w-2xl md:p-8 lg:p-12 mx-auto">
+        {/* Cabeçalho */}
+        <div className="flex items-center justify-between w-full px-2 py-4">
+          <h1 className="text-4xl font-bold flex-grow text-center ml-4 mr-4 md:text-5xl md:ml-0 md:mr-0">
+            Leaderboard
+          </h1>
+          <UserPointsCard
+            points={currentUser.score}
+            badgeUrl={currentUser.avatarUrl}
+          />
+        </div>
 
-      {/* Conteúdo principal - Container com efeito de blur */}
-      <div className="w-full max-w-2xl rounded-2xl p-6 mb-8 mt-4">
-        {/* Top 3 Jogadores */}
-        <LeaderboardTopPlayers
-          first={topPlayers[0]}
-          second={topPlayers[1]}
-          third={topPlayers[2]}
-        />
+        {/* Conteúdo principal - Card com efeito de blur */}
+        <div className="w-full rounded-2xl p-6 mb-8 mt-4">
+          {/* Top 3 Jogadores */}
+          <LeaderboardTopPlayers
+            first={topPlayers[0]}
+            second={topPlayers[1]}
+            third={topPlayers[2]}
+          />
 
-        {/* Lista dos demais jogadores no ranking */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 shadow-2xl border-white/20">
-          <ul className="space-y-4">
-            {otherPlayers.map((player) => (
-              <LeaderboardListItem
-                key={player.id}
-                rank={mockRankingData.indexOf(player) + 1}
-                name={player.name}
-                score={player.score}
-                avatarUrl={player.avatarUrl}
-                isCurrentUser={player.id === currentUser.id}
-              />
-            ))}
-          </ul>
+          {/* Lista dos demais jogadores no ranking */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 shadow-2xl border-white/20">
+            <ul className="space-y-4">
+              {otherPlayers.map((player) => (
+                <LeaderboardListItem
+                  key={player.id}
+                  rank={mockRankingData.indexOf(player) + 1}
+                  name={player.name}
+                  score={player.score}
+                  avatarUrl={player.avatarUrl}
+                  isCurrentUser={player.id === currentUser.id}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-      <BottomNavigationBar />
     </div>
   );
 }
