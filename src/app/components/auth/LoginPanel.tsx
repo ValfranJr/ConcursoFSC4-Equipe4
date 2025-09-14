@@ -171,7 +171,7 @@ export function LoginPanel() {
         </div>
         <p className="text-center text-sm text-neutral-500">
           Não tem uma conta?{" "}
-          <a href="/signup" className="text-blue-600">
+          <a href="/frontend/signup" className="text-blue-600">
             Cadastre-se
           </a>
         </p>

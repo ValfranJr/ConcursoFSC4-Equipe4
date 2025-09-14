@@ -11,9 +11,9 @@ export const loginSchema = z.object({
   rememberMe: z.boolean().optional(),
 });
 
-export const registerSchema = z
+export const SignupFormData = z
   .object({
-    name: z
+    username: z
       .string()
       .min(2, "O nome deve ter no mínimo 2 caracteres")
       .max(50, "O nome deve ter no máximo 50 caracteres"),
@@ -58,6 +58,6 @@ export const resetPasswordSchema = z
 
 // Tipos TypeScript derivados dos schemas
 export type LoginFormData = z.infer<typeof loginSchema>;
-export type RegisterFormData = z.infer<typeof registerSchema>;
+export type RegisterFormData = z.infer<typeof SignupFormData>;
 export type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;
 export type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
