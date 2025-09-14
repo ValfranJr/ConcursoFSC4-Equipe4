@@ -27,7 +27,9 @@ const data = [
 export const ProfileChart = () => {
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
-      <h3 className="text-xl font-bold text-white mb-4">Estatísticas Semanais</h3>
+      <h3 className="text-xl font-bold text-white mb-4">
+        Estatísticas Semanais
+      </h3>
       <div className="w-full h-48">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
@@ -37,20 +39,28 @@ export const ProfileChart = () => {
             {/* Definição do gradiente de cor para a área do gráfico */}
             <defs>
               <linearGradient id="colorScore" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8A2BE2" stopOpacity={0.8}/> {/* Roxo mais claro */}
-                <stop offset="95%" stopColor="#8A2BE2" stopOpacity={0}/> {/* Roxo mais escuro, transparente */}
+                <stop offset="5%" stopColor="#8A2BE2" stopOpacity={0.8} />{" "}
+                {/* Roxo mais claro */}
+                <stop offset="95%" stopColor="#8A2BE2" stopOpacity={0} />{" "}
+                {/* Roxo mais escuro, transparente */}
               </linearGradient>
             </defs>
-
             {/* Configuração do eixo X (dias da semana) */}
-            <XAxis dataKey="name" stroke="#ffffff" opacity={0.7} tickFormatter={(tick) => tick.substring(0, 3)} /> {/* Formata para 3 letras */}
-            
+            <XAxis
+              dataKey="name"
+              stroke="#ffffff"
+              opacity={0.7}
+              tickFormatter={(tick: any) => tick.substring(0, 3)}
+            />{" "}
+            {/* Formata para 3 letras */}
             {/* Configuração do eixo Y (pontuação) */}
             <YAxis stroke="#ffffff" opacity={0.7} />
-            
             {/* Grade do gráfico - desativada ou com cor suave */}
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" opacity={0.1}/> 
-
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="#ffffff"
+              opacity={0.1}
+            />
             {/* Tooltip personalizado */}
             <Tooltip
               contentStyle={{
@@ -63,7 +73,6 @@ export const ProfileChart = () => {
               itemStyle={{ color: "#fff" }}
               formatter={(value: number) => [`${value} Pts`, "Pontuação"]} // Exibe '800 Pts'
             />
-            
             {/* Área do gráfico */}
             <Area
               type="monotone"
