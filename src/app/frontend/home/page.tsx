@@ -9,7 +9,7 @@ export default function HomePage() {
         Quizz Game
       </h1>
       <div className="flex flex-col space-y-4 w-full max-w-sm">
-        <Link href="/game/solo" passHref>
+        <Link href="/frontend/game/solo" passHref>
           <button className="w-full py-4 text-2xl font-bold text-primary-foreground bg-primary rounded-lg shadow-lg hover:opacity-80 transition-opacity duration-300">
             Modo Solo
           </button>
