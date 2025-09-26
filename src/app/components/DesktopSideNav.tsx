@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Award, ChevronsLeft, ChevronsRight } from "lucide-react";
+import {
+  Home,
+  User,
+  Award,
+  ChevronsLeft,
+  ChevronsRight,
+  LogOut,
+} from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
@@ -33,56 +40,74 @@ export const DesktopSideNav = ({
 
   return (
     <nav
-      className={`fixed inset-y-0 left-0 hidden md:flex flex-col bg-white/10 backdrop-blur-md shadow-2xl p-4 transition-all duration-300 ${isCollapsed ? "w-20" : "w-64"}`}
+      className={`fixed inset-y-0 left-0 hidden md:flex flex-col bg-white/10 backdrop-blur-md shadow-2xl p-4 transition-all duration-300 ${
+        isCollapsed ? "w-20" : "w-64"
+      }`}
     >
-      <div className="flex items-center space-x-2 p-2 mb-8">
-        <div className="relative w-10 h-10">
-          <Image
-            src="/avatar-quizz.png"
-            alt="Quiz Logo"
-            fill
-            sizes="40px"
-            className="object-contain"
-          />
+      <div className="flex flex-col flex-1">
+        <div className="flex items-center space-x-2 p-2 mb-8">
+          <div className="relative w-10 h-10">
+            <Image
+              src="/avatar-quizz.png"
+              alt="Quiz Logo"
+              fill
+              sizes="40px"
+              className="object-contain"
+            />
+          </div>
+          {!isCollapsed && (
+            <h1 className="text-2xl font-bold text-white">Quizz</h1>
+          )}
         </div>
-        {!isCollapsed && (
-          <h1 className="text-2xl font-bold text-white">Quizz</h1>
-        )}
+
+        <ul className="flex flex-col space-y-2">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = pathname === item.href;
+            const activeClasses =
+              "bg-white/20 text-white font-bold  border-purple-500";
+            const inactiveClasses =
+              "text-gray-300 hover:bg-white/10 transition-colors";
+
+            return (
+              <li key={item.id}>
+                <Link
+                  href={item.href}
+                  className={`flex items-center p-3 rounded-lg ${
+                    isActive ? activeClasses : inactiveClasses
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  {!isCollapsed && <span className="ml-3">{item.label}</span>}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
-      <ul className="flex flex-col space-y-2">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = pathname === item.href;
-          const activeClasses =
-            "bg-white/20 text-white font-bold  border-purple-500";
-          const inactiveClasses =
-            "text-gray-300 hover:bg-white/10 transition-colors";
+      {/** Conteiner para os botões inferiores Sair e Recolher */}
 
-          return (
-            <li key={item.id}>
-              <Link
-                href={item.href}
-                className={`flex items-center p-3 rounded-lg ${isActive ? activeClasses : inactiveClasses}`}
-              >
-                <Icon className="w-5 h-5" />
-                {!isCollapsed && <span className="ml-3">{item.label}</span>}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="flex flex-col space-y-2">
+        <Link
+          href="/frontend/login"
+          className="flex items-center p-3 rounded-lg text-gray-300 hover:bg-red-500/30 transition-colors"
+        >
+          <LogOut className="w-5 h-5" />
+          {!isCollapsed && <span className="ml-3">Sair</span>}
+        </Link>
 
-      <button
-        onClick={toggleCollapse}
-        className="mt-auto flex items-center justify-center p-3 rounded-lg text-gray-300 hover:bg-white/10 transition-colors"
-      >
-        {isCollapsed ? (
-          <ChevronsRight className="w-5 h-5" />
-        ) : (
-          <ChevronsLeft className="w-5 h-5" />
-        )}
-      </button>
+        <button
+          onClick={toggleCollapse}
+          className="mt-auto flex items-center justify-center p-3 rounded-lg text-gray-300 hover:bg-white/10 transition-colors"
+        >
+          {isCollapsed ? (
+            <ChevronsRight className="w-5 h-5" />
+          ) : (
+            <ChevronsLeft className="w-5 h-5" />
+          )}
+        </button>
+      </div>
     </nav>
   );
 };
