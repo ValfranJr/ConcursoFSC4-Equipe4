@@ -14,7 +14,7 @@ export function AchievementCard({
   label,
 }: AchievementCardProps) {
   return (
-    <div className="flex flex-col p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-md text-white">
+    <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-md text-white min-w-0">
       <div className="relative w-12 h-12 mb-2">
         <span className="text-4xl">{iconUrl}</span>
         
